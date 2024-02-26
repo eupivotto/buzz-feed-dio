@@ -1,0 +1,28 @@
+<div class="container-main">
+  <div class="quizz-logo">
+    <img
+      class="img-fluid"
+      src="../../../assets/images/BuzzFeed-Logo.wine.png"
+      alt=""
+    />
+    <h3 class="fw-bold pb-2">{{ title }}</h3>
+  </div>
+
+  <div *ngIf="!finished" class="questions">
+    <h3>{{ questionSelected.question }}</h3>
+  </div>
+  <div *ngIf="!finished" class="options">
+    <button
+      *ngFor="let option of questionSelected.options"
+      (click)="choosePlayer(option.alias)"
+      class="btn btn-option mb-2 ms-2"
+    >
+      {{ option.name }}
+    </button>
+  </div>
+
+  <div *ngIf="finished" class="results">
+    <h1>O seu Resultado é:</h1>
+    <p class="fw-bold">{{ answersSelected }}</p>
+  </div>
+</div>
